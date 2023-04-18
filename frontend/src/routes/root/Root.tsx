@@ -1,7 +1,5 @@
 const Root = () => {
-  return (
-    <div>Root</div>
-  )
-}
+	return <div>Root</div>;
+};
 
-export default Root
+export default Root;
