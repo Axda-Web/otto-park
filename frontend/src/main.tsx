@@ -1,34 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import './index.css';
 
+import Header from './components/header';
 import Root from './routes/root';
 import Login from './routes/login';
 import Signup from './routes/signup';
 import Booking from './routes/booking';
 import Profile from './routes/profile';
+import Error from './routes/error';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Root />,
-	},
-	{
-		path: '/login',
-		element: <Login />,
-	},
-	{
-		path: '/signup',
-		element: <Signup />,
-	},
-	{
-		path: '/booking',
-		element: <Booking />,
-	},
-	{
-		path: '/profile',
-		element: <Profile />,
+		element: (
+			<>
+				<Header />
+				<Outlet />
+			</>
+		),
+		children: [
+			{
+				path: '/',
+				element: <Root />,
+			},
+			{
+				path: '/login',
+				element: <Login />,
+			},
+			{
+				path: '/signup',
+				element: <Signup />,
+			},
+			{
+				path: '/booking',
+				element: <Booking />,
+			},
+			{
+				path: '/profile',
+				element: <Profile />,
+			},
+			{
+				path: '*',
+				element: <Error />,
+			}
+		],
 	},
 ]);
 
