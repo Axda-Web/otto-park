@@ -6,6 +6,7 @@ import store from './store';
 import './index.css';
 
 import Header from './components/header';
+import Footer from './components/footer';
 import Root from './routes/root';
 import Login from './routes/login';
 import Signup from './routes/signup';
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
 			<>
 				<Header />
 				<Outlet />
+				<Footer />
 			</>
 		),
 		children: [
